@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="glavnakocka">
+        <p class="naslov">Currency Converter</p>
+  
+        <div class="input-box">
+            <p class="amount">Amount</p>
+            <input id="amountInput" type="text" required placeholder="1,00$">
+        </div>
+        <div class="input-box2">
+            <p class="from">From</p>
+            <input id="fromCurrencyInput" type="text" required>
+        </div>
+        <div class="input-box3">
+            <p class="to">To</p>
+            <input id="toCurrencyInput" type="text" required>
+        </div>
+        <div class="convert-box">
+            <button class="convert" onclick="convert()">Convert</button>
+        </div>
+        <p id="result" class="convert"></p>
+    </div>
+
+    <script>
+        
+const USD_TO_JPY_RATE = 112.18;
+const USD_TO_EUR_RATE = 0.85;
+const USD_TO_GBP_RATE = 0.74;
+const USD_TO_AUD_RATE = 1.35;
+const USD_TO_CAD_RATE = 1.27;
+
+// Calculate exchange rates for all currency pairs
+const EUR_TO_USD_RATE = 1 / USD_TO_EUR_RATE;
+const EUR_TO_JPY_RATE = EUR_TO_USD_RATE * USD_TO_JPY_RATE;
+const EUR_TO_GBP_RATE = EUR_TO_USD_RATE * USD_TO_GBP_RATE;
+const EUR_TO_AUD_RATE = EUR_TO_USD_RATE * USD_TO_AUD_RATE;
+const EUR_TO_CAD_RATE = EUR_TO_USD_RATE * USD_TO_CAD_RATE;
+
+const CAD_TO_USD_RATE = 1 / USD_TO_CAD_RATE;
+const CAD_TO_EUR_RATE = CAD_TO_USD_RATE * USD_TO_EUR_RATE;
+const CAD_TO_JPY_RATE = CAD_TO_USD_RATE * USD_TO_JPY_RATE;
+const CAD_TO_GBP_RATE = CAD_TO_USD_RATE * USD_TO_GBP_RATE;
+const CAD_TO_AUD_RATE = CAD_TO_USD_RATE * USD_TO_AUD_RATE;
+
+const AUD_TO_USD_RATE = 1 / USD_TO_AUD_RATE;
+const AUD_TO_EUR_RATE = AUD_TO_USD_RATE * USD_TO_EUR_RATE;
+const AUD_TO_JPY_RATE = AUD_TO_USD_RATE * USD_TO_JPY_RATE;
+const AUD_TO_GBP_RATE = AUD_TO_USD_RATE * USD_TO_GBP_RATE;
+const AUD_TO_CAD_RATE = AUD_TO_USD_RATE * USD_TO_CAD_RATE;
+
+const JPY_TO_USD_RATE = 1 / USD_TO_JPY_RATE;
+const JPY_TO_EUR_RATE = JPY_TO_USD_RATE * USD_TO_EUR_RATE;
+const JPY_TO_GBP_RATE = JPY_TO_USD_RATE * USD_TO_GBP_RATE;
+const JPY_TO_AUD_RATE = JPY_TO_USD_RATE * USD_TO_AUD_RATE;
+const JPY_TO_CAD_RATE = JPY_TO_USD_RATE * USD_TO_CAD_RATE;
+
+const GBP_TO_USD_RATE = 1 / USD_TO_GBP_RATE;
+const GBP_TO_EUR_RATE = GBP_TO_USD_RATE * USD_TO_EUR_RATE;
+const GBP_TO_JPY_RATE = GBP_TO_USD_RATE * USD_TO_JPY_RATE;
+const GBP_TO_AUD_RATE = GBP_TO_USD_RATE * USD_TO_AUD_RATE;
+const GBP_TO_CAD_RATE = GBP_TO_USD_RATE * USD_TO_CAD_RATE;
+
+function convertCurrency(amount, fromCurrency, toCurrency) {
+  const conversionRates = {
+    USD: {
+      USD: 1,
+      EUR: USD_TO_EUR_RATE,
+      GBP: USD_TO_GBP_RATE,
+      AUD: USD_TO_AUD_RATE,
+      CAD: USD_TO_CAD_RATE,
+      JPY: USD_TO_JPY_RATE,
+    },
+    EUR: {
+      USD: EUR_TO_USD_RATE,
+      EUR: 1,
+      GBP: EUR_TO_GBP_RATE,
+      AUD: EUR_TO_AUD_RATE,
+      CAD: EUR_TO_CAD_RATE,
+      JPY: EUR_TO_JPY_RATE,
+    },
+    GBP: {
+      USD: GBP_TO_USD_RATE,
+      EUR: GBP_TO_EUR_RATE,
+      GBP: 1,
+      AUD: GBP_TO_AUD_RATE,
+      CAD: GBP_TO_CAD_RATE,
+      JPY: GBP_TO_JPY_RATE,
+    },
+    AUD: {
+      USD: AUD_TO_USD_RATE,
+      EUR: AUD_TO_EUR_RATE,
+      GBP: AUD_TO_GBP_RATE,
+      AUD: 1,
+      CAD: AUD_TO_CAD_RATE,
+      JPY: AUD_TO_JPY_RATE,
+    },
+    CAD: {
+      USD: CAD_TO_USD_RATE,
+      EUR: CAD_TO_EUR_RATE,
+      GBP: CAD_TO_GBP_RATE,
+      AUD: CAD_TO_AUD_RATE,
+      CAD: 1,
+      JPY: CAD_TO_JPY_RATE,
+    },
+    JPY: {
+      USD: JPY_TO_USD_RATE,
+      EUR: JPY_TO_EUR_RATE,
+      GBP: JPY_TO_GBP_RATE,
+      AUD: JPY_TO_AUD_RATE,
+      CAD: JPY_TO_CAD_RATE,
+      JPY: 1,
+    },
+  };
+
+  return (amount * conversionRates[fromCurrency][toCurrency]).toFixed(2);
+}
+
+function convert() {
+  const amount = parseFloat(document.getElementById("amountInput").value);
+  const fromCurrency = document.getElementById("fromCurrencyInput").value;
+  const toCurrency = document.getElementById("toCurrencyInput").value;
+
+  const result = convertCurrency(amount, fromCurrency, toCurrency);
+
+  document.getElementById("result").innerText
+}
+</script>
+
+</body>
+</html>
