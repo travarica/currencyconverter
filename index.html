@@ -8,37 +8,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap" rel="stylesheet">
-    
 </head>
 <body>
-    <div class="glavnakocka">
-        <p class="naslov">Currency Converter</p>
-  
-        <div class="input-box">
-            <p class="amount">Amount</p>
-            <input id="amountInput" type="text" required placeholder="1,00$">
-        </div>
-        <div class="input-box2">
-            <p class="from">From</p>
-            <input id="fromCurrencyInput" type="text" required>
-        </div>
-        <div class="input-box3">
-            <p class="to">To</p>
-            <input id="toCurrencyInput" type="text" required>
-        </div>
-        <div class="convert-box">
-            <button class="convert" onclick="convert()">Convert</button>
-        </div>
-        <p id="result" class="convert"></p>
+  <div class="glavnakocka">
+    <p class="naslov">Currency Converter</p>
+
+    <div class="input-box">
+        <p class="amount">Amount</p>
+        <input id="amountInput" type="text" required placeholder="1.00$">
     </div>
+    <div class="input-box2">
+        <p class="from">From</p>
+        <select id="fromCurrencyInput" required>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="AUD">AUD</option>
+            <option value="CAD">CAD</option>
+            <!-- Dodajte ostale valute prema potrebi -->
+        </select>
+    </div>
+    <div class="input-box3">
+        <p class="to">To</p>
+        <select id="toCurrencyInput" required>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="AUD">AUD</option>
+            <option value="CAD">CAD</option>
+            <!-- Dodajte ostale valute prema potrebi -->
+        </select>
+    </div>
+    <div class="convert-box">
+        <button class="convert" onclick="convert()">Convert</button>
+    </div>
+    <p id="result" class="convert"></p>
+  </div>
+
 
     <script>
         
-const USD_TO_JPY_RATE = 112.18;
-const USD_TO_EUR_RATE = 0.85;
-const USD_TO_GBP_RATE = 0.74;
-const USD_TO_AUD_RATE = 1.35;
-const USD_TO_CAD_RATE = 1.27;
+const USD_TO_JPY_RATE = 147.52 ;
+const USD_TO_EUR_RATE = 0.92;
+const USD_TO_GBP_RATE = 0.79;
+const USD_TO_AUD_RATE = 1.52;
+const USD_TO_CAD_RATE = 1.35;
 
 // Calculate exchange rates for all currency pairs
 const EUR_TO_USD_RATE = 1 / USD_TO_EUR_RATE;
@@ -127,13 +141,14 @@ function convertCurrency(amount, fromCurrency, toCurrency) {
 }
 
 function convert() {
-  const amount = parseFloat(document.getElementById("amountInput").value);
-  const fromCurrency = document.getElementById("fromCurrencyInput").value;
-  const toCurrency = document.getElementById("toCurrencyInput").value;
+    const amount = parseFloat(document.getElementById("amountInput").value);
+    const fromCurrency = document.getElementById("fromCurrencyInput").value;
+    const toCurrency = document.getElementById("toCurrencyInput").value;
 
-  const result = convertCurrency(amount, fromCurrency, toCurrency);
+    const result = convertCurrency(amount, fromCurrency, toCurrency);
 
-  document.getElementById("result").innerText
+    // Postavi rezultat u HTML
+    document.getElementById("result").innerText = `${amount} ${fromCurrency} = ${result} ${toCurrency}`;
 }
 </script>
 
