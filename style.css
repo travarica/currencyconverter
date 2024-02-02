@@ -22,8 +22,9 @@ body{
     transform: translate(-50%,-50%);
     width: 1000px;
     height: 450px;
-    background-color: rgb(227, 229, 236);
+    background-color: rgb(235, 235, 235);
     border-radius: 30px;
+    box-shadow: blue 0px 1px 3px 0px, blue 0px 0px 0px 1px;
     
     
 }
@@ -39,10 +40,10 @@ body{
 
 .input-box input {
     position: absolute;
-    top: 50%;
+    top: 46%;
     left: 17%;
-    height: 35px;
-    width: 180px;
+    height: 45px;
+    width: 190px;
     border-radius: 5px;
     padding-left: 8px;
     opacity: 0.8;
@@ -57,7 +58,7 @@ body{
 }
 .amount{
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 17.2%;
     font-weight: bold;
     color: blue;
@@ -68,10 +69,10 @@ body{
 #fromCurrencyInput{
     width: 100px;
     position: absolute;
-    top: 50%;
+    top: 46%;
     left: 40%;
-    height: 38px;
-    width: 180px;
+    height: 48px;
+    width: 190px;
     border-radius: 5px;
     opacity: 0.8;
     background-color: rgb(243, 242, 242);
@@ -87,17 +88,17 @@ body{
 
 .from{
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 40.2%;
     font-weight: bold;
     color: blue;
 }
 #toCurrencyInput{
     position: absolute;
-    top: 50%;
+    top: 46%;
     left: 63%;
-    height: 38px;
-    width: 180px;
+    height: 48px;
+    width: 190px;
     border-radius: 5px;
     padding-left: 8px;
     opacity: 0.8;
@@ -112,7 +113,7 @@ body{
 }
 .to{
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 63.2%;
     font-weight: bold;
     color: blue;
@@ -143,4 +144,22 @@ body{
     top: 68%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+.krug1{
+    position: absolute;
+    top:0%;
+    width: 100px;
+    height: 110px;
+    border-radius: 15px 0 100px 0;
+    background-color: blue;
+    
+}
+.krug2{
+    position: absolute;
+    top:0%;
+    left: 85%;
+    width: 150px;
+    height: 130px;
+    border-radius: 0 15px 0 100px;
+    background-color: blue;
 }

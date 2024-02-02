@@ -25,6 +25,8 @@
             <option value="GBP">GBP</option>
             <option value="AUD">AUD</option>
             <option value="CAD">CAD</option>
+            <option value="JPY">JPY</option>
+          
             <!-- Dodajte ostale valute prema potrebi -->
         </select>
     </div>
@@ -36,6 +38,9 @@
             <option value="GBP">GBP</option>
             <option value="AUD">AUD</option>
             <option value="CAD">CAD</option>
+            <option value="JPY">JPY</option>
+          </option>
+              
             <!-- Dodajte ostale valute prema potrebi -->
         </select>
     </div>
@@ -43,6 +48,8 @@
         <button class="convert" onclick="convert()">Convert</button>
     </div>
     <p id="result" class="convert"></p>
+    <div class="krug1" hidden></div>
+    <div class="krug2" hidden></div>
   </div>
 
 
@@ -150,6 +157,8 @@ function convert() {
     // Postavi rezultat u HTML
     document.getElementById("result").innerText = `${amount} ${fromCurrency} = ${result} ${toCurrency}`;
 }
+
+
 </script>
 
 </body>
